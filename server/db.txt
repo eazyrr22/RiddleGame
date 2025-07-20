@@ -1,0 +1,19 @@
+[
+    { 
+    firstRiddle :{ 
+                    id :1,
+                    name : "multiply",
+                    taskDescription :"what is 8 * 8?",
+                    correctAnswer :64
+                }
+    },
+
+     {
+    secondRiddleP: {
+                    id : 2,
+                    name: "divide",
+                    taskDescription : "what is 25/5?",
+                    correctAnswer : 5
+                    }
+    }
+]

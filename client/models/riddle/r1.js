@@ -7,6 +7,5 @@ const firstRiddle = new Riddle {
                     correctAnswer = 64
                     }
 
-
 export default firstRiddle
 
