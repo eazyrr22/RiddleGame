@@ -1,5 +1,4 @@
-// import the crud functions
-
+import { getAllRiddles,createAndAddRiddle } from "./CTRL/riddles_CTRL"
 
 
 function Menu(){

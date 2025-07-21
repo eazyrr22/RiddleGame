@@ -1,55 +1,74 @@
 import fetch from 'node-fetch';
+import {config} from 'dotenv';
 
-// const path = "http://localhost:5007";
+config()
 
-async function getData(path) {
-    return await fetch(path, { encoding: "utf-8" })
-    .then(response => response.json())
-    .then(value=>console.log(value))
-    .catch(err=>console.log('get_request_rejected',err));
+const url = "http://localhost:".concat(process.env.SERVER_PORT);
 
+// ------- a. handle routes not finished ------
+// --------b. manage response(return/log to console)
+export async function getRiddles() {
+    const fullRoute = url.concat('/riddles');
+    let retrivedData;
+    try {
+         await fetch(fullRoute)
+        .then(response => response.json())
+        .then(data=>{retrivedData = JSON.parse(data)})
+        return retrivedData;
+    } catch (error) {
+       console.log('get equest(fetch) rejected:\n',error)
+    }
+    
 }
 
-async function postData(url, data) {
+export async function postRiddle(riddle) {
 
-    if (typeof data !== "string") {
-       const ContentParsed = JSON.stringify(data);
+    if (typeof riddle === "string") {
+       const ContentParsed = JSON.parse(riddle);
     }
-    return await fetch(url, {
+    const fullRoute = url.concat('/addRiddle')
+    return await fetch(fullRoute, {
         method: "POST",
         headers: {
         'Content-Type': 'application/json' 
     },body: ContentParsed
     })
-    .then(response => {if(response.ok)console.log('post succeed')})
+    .then(response => {if(response.ok) return true;})
+    .catch(err=>console.log('post request(fetch) rejected',err));
+
+}
+
+export async function updateRiddle(data) {
+
+    if (typeof data === "string") {
+       const ContentParsed = JSON.parse(data);
+    }
+    const fullRoute = url.concat('/updateRiddle')
+    return await fetch(fullRoute, {
+        method: "PUT",
+        headers: {
+        'Content-Type': 'application/json' 
+    },body: ContentParsed
+    })
+    .then(response => {if(response.ok) return true;})
     .catch(err=>console.log('post request rejected',err));
 
 }
 
 
-async function deleteData(url, id) {
-
-      return await fetch(url,{
-            method:"DELET",
+export async function deleteRiddle(id) {
+    const fullRoute = url.concat('/deleteRiddle')
+      return await fetch(fullRoute,{
+            method:"DELETE",
             headers:{'Content-Type': 'application/json' },
-            body: JSON.stringify({"id":id})
+            body: JSON.parse({"id":id})
             })
-            .then(response => { if(response.ok) console.log('delete succeed') } )
-            .catch(err=>console.log('delete request rejected',err));
+            .then(response => { if(response.ok) return true;} )
+            .catch(err=>console.log('delete request(fetch) rejected: \n',err));
         
 }
 
 
-
-
-
-
-
-export {
-    getData,
-    postData,
-    deleteData
-}
 
 
 

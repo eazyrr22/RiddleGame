@@ -1,4 +1,4 @@
-import rl, { question } from "readline-sync";
+import rl from 'readline-sync'
 
 class Riddle {
     constructor(id, name, taskDescription, correctAnswer) {
