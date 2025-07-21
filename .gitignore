@@ -826,3 +826,5 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+client/package-lock.json
+client/package.json
