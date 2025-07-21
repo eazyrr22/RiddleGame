@@ -12,7 +12,7 @@ export default function Menu(){
     console.log('5. Delete a riddle')
     console.log('6. View leaderboard')
     const input = question('your choice:   ');
-   while(true){
+   
     switch(input){
         case 1:
             playGame();
@@ -26,6 +26,6 @@ export default function Menu(){
         case 4:
             console.log('hello')
             break;
-    }  }
+    }  
 
 }
