@@ -1,3 +1,3 @@
-import menu from "./menu";
+import Menu from "./menu.js";
 
-menu();
+Menu();

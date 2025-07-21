@@ -1,9 +1,9 @@
 
-function Round(riddle, ply) {
+function Round(riddle, player) {
     const start = Date.now();
     riddle.ask();
     const end = Date.now();
-    ply.recordTime(start, end);
+    player.recordTime(start, end);
 
 }
 

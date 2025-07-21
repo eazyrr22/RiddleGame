@@ -1,5 +1,5 @@
 import rl, { question } from 'readline-sync';
-import Riddle from '../models/riddels';
+import Riddle from '../models/riddels.js';
 
  export function createRiddle(){
 
