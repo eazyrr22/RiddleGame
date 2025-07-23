@@ -11,10 +11,9 @@ export async function getRiddles() {
     const fullRoute = url.concat('/riddles');
     let retrivedData;
     try {
-         await fetch(fullRoute)
+         const riddles = await fetch(fullRoute)
         .then(response => response.json())
-        .then(data=>{retrivedData = JSON.parse(data)})
-        return retrivedData;
+        return riddles;
     } catch (error) {
        console.log('get equest(fetch) rejected:\n',error)
     }

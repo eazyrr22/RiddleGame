@@ -1,4 +1,4 @@
-import {getRiddles,postRiddle,deleteRiddle,updateRiddle} from '../DAL/riddles_DAL.js';
+import {getRiddles,postRiddle,deleteRiddle,updateRiddle} from '../api/riddles_api.js';
 import {createRiddle} from '../utils/createRiddles.js';
 
 

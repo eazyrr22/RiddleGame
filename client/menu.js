@@ -1,4 +1,4 @@
-import { getAllRiddles,createAndAddRiddle } from "./CTRL/riddles_CTRL.js"
+import { getAllRiddles,createAndAddRiddle } from "./services/riddles_service.js"
 import rl, { question } from 'readline-sync';
 import playGame from "./GameManagement/game.js";
 
@@ -12,7 +12,7 @@ export default function Menu(){
     console.log('5. Delete a riddle')
     console.log('6. View leaderboard')
     const input = question('your choice:   ');
-   while(true){
+  
     switch(input){
         case 1:
             playGame();
@@ -23,9 +23,9 @@ export default function Menu(){
         case 3:
             getAllRiddles();
             break;
-        case 4:
-            console.log('hello')
+        default:
+            console.log('choose one of the options from the list')
             break;
-    }  }
+    }  
 
 }
